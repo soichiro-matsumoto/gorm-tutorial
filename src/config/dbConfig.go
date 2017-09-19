@@ -36,11 +36,6 @@ func (config *DbConfig) GormOpen() (db *gorm.DB, err error) {
 
 	// dbms , user:pass@protocol(host:port)/dbname
 	db, err = gorm.Open(config.DBMS, (config.USER + ":" + config.PASS + "@" + config.PROTOCOL + "(" + config.HOST + ":" + strconv.Itoa(config.PORT) + ")" + "/" + config.DBNAME + "?charset=utf8&parseTime=True&loc=Local"))
-
-	if err != nil {
-		return
-	}
-
 	db.LogMode(true)
 
 	return
